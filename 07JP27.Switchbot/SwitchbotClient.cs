@@ -42,6 +42,16 @@ namespace _07JP27.Switchbot
             var responseText = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<DeviceListResponse>(responseText);
         }
-        
+
+        public async Task<DeviceStatusResponse> GetDeviceStatusAsync(string deviceId)
+        {
+            if (string.IsNullOrEmpty(deviceId)) throw new ServiceException("deviceId is missing.");
+
+            HttpResponseMessage response = await _client.GetAsync($"/v1.0/devices/{deviceId}/status");
+            response.EnsureSuccessStatusCode();
+            var responseText = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DeviceStatusResponse>(responseText);
+        }
+
     }
 }
