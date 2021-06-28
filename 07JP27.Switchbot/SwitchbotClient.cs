@@ -10,24 +10,11 @@ namespace _07JP27.Switchbot
     public class SwitchbotClient
     {
         private static HttpClient _client = null;
-        private string baseUrl;
-
-        public string BaseUrl
-        {
-            get { return this.baseUrl; }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ServiceException("BaseUrl is missing");
-                }
-
-                this.baseUrl = value.TrimEnd('/');
-            }
-        }
 
         public SwitchbotClient(string token, string baseUrl = "https://api.switch-bot.com")
         {
+            if (string.IsNullOrEmpty(token)) throw new ServiceException("Token is missing.");
+
             _client = _client ?? new HttpClient()
             {
                 BaseAddress = new Uri(baseUrl)
@@ -51,6 +38,14 @@ namespace _07JP27.Switchbot
             response.EnsureSuccessStatusCode();
             var responseText = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<DeviceStatusResponse>(responseText);
+        }
+
+        public async Task<SceneListResponse> GetSceneListAsync()
+        {
+            HttpResponseMessage response = await _client.GetAsync("/v1.0/scenes");
+            response.EnsureSuccessStatusCode();
+            var responseText = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<SceneListResponse>(responseText);
         }
 
     }

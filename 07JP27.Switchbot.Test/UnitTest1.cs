@@ -22,5 +22,13 @@ namespace _07JP27.Switchbot.Tests
             var device = await client.GetDeviceStatusAsync("");
             Assert.AreNotEqual(device, null);
         }
+
+        [TestMethod()]
+        public async Task GetSceneListAsyncTestAsync()
+        {
+            SwitchbotClient client = new SwitchbotClient("");
+            var scenes = await client.GetSceneListAsync();
+            Assert.AreNotEqual(scenes, null);
+        }
     }
 }
