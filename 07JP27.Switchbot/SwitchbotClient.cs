@@ -1,6 +1,9 @@
 ﻿using _07JP27.Switchbot.Exceptions;
+using _07JP27.Switchbot.Models;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace _07JP27.Switchbot
 {
@@ -32,6 +35,13 @@ namespace _07JP27.Switchbot
             _client.DefaultRequestHeaders.Add("Authorization", token);
         }
 
+        public async Task<DeviceListResponse> GetDeviceListAsync()
+        {
+            HttpResponseMessage response = await _client.GetAsync("/v1.0/devices");
+            response.EnsureSuccessStatusCode();
+            var responseText = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DeviceListResponse>(responseText);
+        }
         
     }
 }
