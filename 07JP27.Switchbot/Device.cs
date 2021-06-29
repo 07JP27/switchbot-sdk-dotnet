@@ -50,6 +50,14 @@ namespace _07JP27.Switchbot
             }
         }
 
+        public Humidifier Humidifier
+        {
+            get
+            {
+                return new Humidifier(_client);
+            }
+        }
+
         public SmartFan SmartFan
         {
             get

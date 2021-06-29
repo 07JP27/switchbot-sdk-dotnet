@@ -104,5 +104,29 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.Curtain.SetPositionAsync("", CurtainMode.Default, 80);
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task HumidifierTurnOffAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Humidifier.TurnOffAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task HumidifierTurnOnAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Humidifier.TurnOnAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task HumidifierSetModeAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Humidifier.SetModeAsync("", "auto");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }
