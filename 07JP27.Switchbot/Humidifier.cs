@@ -41,7 +41,7 @@ namespace _07JP27.Switchbot
             var parameters = new CommandRequestBody()
             {
                 CommandType = CommandType.Commnad,
-                Command = Command.TurnOn,
+                Command = Command.SetMode,
                 Parameter = mode
             };
 
