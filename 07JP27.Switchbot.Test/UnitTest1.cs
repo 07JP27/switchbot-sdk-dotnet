@@ -128,5 +128,29 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.Humidifier.SetModeAsync("", "auto");
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task SmartFanTurnOffAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.SmartFan.TurnOffAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task SmartFanTurnOnAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.SmartFan.TurnOnAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task SmartFanSetAllStatusAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.SmartFan.SetAllStatusAsync("", SmartFanPower.On, SmartFanMode.Natural, SmartFanSpeed.Middle, 50);
+            Assert.AreNotEqual(result, null);
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace _07JP27.Switchbot.Constants
         internal const string Press = "press";
         internal const string SetPosition = "setPosition";
         internal const string SetMode = "setMode";
+        internal const string SetAllStatus = "setAllStatus";
     }
 }

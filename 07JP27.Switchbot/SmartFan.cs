@@ -1,29 +1,68 @@
-﻿using System;
+﻿using _07JP27.Switchbot.Constants;
+using _07JP27.Switchbot.Enums;
+using _07JP27.Switchbot.Exceptions;
+using _07JP27.Switchbot.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace _07JP27.Switchbot
 {
-    public class SmartFan
+    public class SmartFan: BaseDevice
     {
-        SwitchbotClient _client;
-        public SmartFan(SwitchbotClient client)
+        public SmartFan(SwitchbotClient client): base(client)
         {
-            _client = client;
         }
-        public void TurnOnAsync()
+        public Task<CommandExecuteResoponse> TurnOnAsync(string deviceId)
         {
-            // TODO: Impl
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOn,
+                Parameter = CommandParameter.Default
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
 
-        public void TurnOffAsync()
+        public Task<CommandExecuteResoponse> TurnOffAsync(string deviceId)
         {
-            // TODO: Impl
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOff,
+                Parameter = CommandParameter.Default
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
 
-        public void SetModeAsync()
+        public Task<CommandExecuteResoponse> SetAllStatusAsync(string deviceId, SmartFanPower power, SmartFanMode fanMode, SmartFanSpeed fanSpeed, int shakeRange)
         {
-            // TODO: Impl
+            if (!Enumerable.Range(1, 120).Contains(shakeRange)) throw new ServiceException("The shakeRange must be between 0 to 120.");
+            string lpower;
+            switch (power)
+            {
+                case SmartFanPower.On:
+                    lpower = "on";
+                    break;
+                case SmartFanPower.Off:
+                    lpower = "off";
+                    break;
+                default:
+                    throw new ServiceException("Can not set power.");
+            }
+            
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.SetAllStatus,
+                Parameter = $"{lpower},{fanMode},{fanSpeed},{shakeRange}"
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
     }
 }
