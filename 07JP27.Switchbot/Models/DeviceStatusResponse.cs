@@ -9,10 +9,10 @@ namespace _07JP27.Switchbot.Models
     {
         public SwitchbotStatusCode StatusCode { get; set; }
         public string Message { get; set; }
-        public DeviceStatusResponseBody Body { get; set; }
+        public DeviceStatus Body { get; set; }
     }
 
-    public class DeviceStatusResponseBody
+    public class DeviceStatus
     {
         public string DeviceId { get; set; }
         public string DeviceType { get; set; }

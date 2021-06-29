@@ -1,4 +1,5 @@
 ﻿using _07JP27.Switchbot.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,13 +10,14 @@ namespace _07JP27.Switchbot.Models
     {
         public SwitchbotStatusCode StatusCode { get; set; }
         public string Message { get; set; }
-        public DeviceListResponseBody Body { get; set; }
+        public DeviceList Body { get; set; }
 
     }
 
-    public class DeviceListResponseBody
+    public class DeviceList
     {
-        public List<Device> DeviceList { get; set; }
+        [JsonProperty("DeviceList")]
+        public List<Device> PhysicalDeviceList { get; set; }
         public List<InfraredRemote> InfraredRemoteList { get; set; }
     }
 }
