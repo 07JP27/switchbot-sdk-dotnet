@@ -15,7 +15,6 @@ namespace _07JP27.Switchbot
         {
         }
 
-
         public Task<CommandExecuteResoponse> TurnOnAsync(string deviceId)
         {
             var parameters = new CommandRequestBody()
@@ -24,9 +23,8 @@ namespace _07JP27.Switchbot
                 Command = Command.TurnOn,
                 Parameter = CommandParameter.Default
             };
-            var json = JsonConvert.SerializeObject(parameters);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            return this.CommandExecuteAsync(deviceId, content);
+            
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
 
         public Task<CommandExecuteResoponse> TurnOffAsync(string deviceId)
@@ -37,9 +35,7 @@ namespace _07JP27.Switchbot
                 Command = Command.TurnOff,
                 Parameter = CommandParameter.Default
             };
-            var json = JsonConvert.SerializeObject(parameters);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            return this.CommandExecuteAsync(deviceId, content);
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
 
         public Task<CommandExecuteResoponse> PressAsync(string deviceId)
@@ -50,9 +46,7 @@ namespace _07JP27.Switchbot
                 Command = Command.Press,
                 Parameter = CommandParameter.Default
             };
-            var json = JsonConvert.SerializeObject(parameters);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            return this.CommandExecuteAsync(deviceId, content);
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
     }
 }
