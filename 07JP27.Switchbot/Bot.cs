@@ -1,29 +1,58 @@
-﻿using System;
+﻿using _07JP27.Switchbot.Constants;
+using _07JP27.Switchbot.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace _07JP27.Switchbot
 {
-    public class Bot
+    public class Bot: BaseDevice
     {
-        SwitchbotClient _client;
-        public Bot(SwitchbotClient client)
+        public Bot(SwitchbotClient client): base(client)
         {
-            _client = client;
-        }
-        public void TurnOnAsync()
-        {
-            // TODO: Impl
         }
 
-        public void TurnOffAsync()
+
+        public Task<CommandExecuteResoponse> TurnOnAsync(string deviceId)
         {
-            // TODO: Impl
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOn,
+                Parameter = CommandParameter.Default
+            };
+            var json = JsonConvert.SerializeObject(parameters);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            return this.CommandExecuteAsync(deviceId, content);
         }
 
-        public void PressAsync()
+        public Task<CommandExecuteResoponse> TurnOffAsync(string deviceId)
         {
-            // TODO: Impl
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOff,
+                Parameter = CommandParameter.Default
+            };
+            var json = JsonConvert.SerializeObject(parameters);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            return this.CommandExecuteAsync(deviceId, content);
+        }
+
+        public Task<CommandExecuteResoponse> PressAsync(string deviceId)
+        {
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.Press,
+                Parameter = CommandParameter.Default
+            };
+            var json = JsonConvert.SerializeObject(parameters);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            return this.CommandExecuteAsync(deviceId, content);
         }
     }
 }
