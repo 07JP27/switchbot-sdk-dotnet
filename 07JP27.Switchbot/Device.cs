@@ -17,13 +17,13 @@ namespace _07JP27.Switchbot
 
         public Task<DeviceListResponse> GetListAsync()
         {
-            return this._client.SendAsync<DeviceListResponse>("/v1.0/devices");
+            return this._client.GetAsync<DeviceListResponse>("/v1.0/devices");
         }
 
         public Task<DeviceStatusResponse> GetStatusAsync(string deviceId)
         {
             if (string.IsNullOrEmpty(deviceId)) throw new ServiceException("deviceId is missing.");
-            return this._client.SendAsync<DeviceStatusResponse>($"/v1.0/devices/{deviceId}/status");
+            return this._client.GetAsync<DeviceStatusResponse>($"/v1.0/devices/{deviceId}/status");
         }
 
         public Bot Bot

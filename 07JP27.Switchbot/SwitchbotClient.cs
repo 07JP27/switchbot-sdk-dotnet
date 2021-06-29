@@ -22,9 +22,17 @@ namespace _07JP27.Switchbot
             _client.DefaultRequestHeaders.Add("Authorization", token);
         }
 
-        public async Task<T> SendAsync<T>(string requestUrl)
+        public async Task<T> GetAsync<T>(string requestUrl)
         {
             HttpResponseMessage response = await _client.GetAsync(requestUrl);
+            response.EnsureSuccessStatusCode();
+            var responseText = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<T>(responseText);
+        }
+
+        public async Task<T> PostAsync<T>(string requestUrl, HttpContent content)
+        {
+            HttpResponseMessage response = await _client.PostAsync(requestUrl, content);
             response.EnsureSuccessStatusCode();
             var responseText = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(responseText);
