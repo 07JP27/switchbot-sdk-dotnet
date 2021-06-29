@@ -1,4 +1,5 @@
 using _07JP27.Switchbot;
+using _07JP27.Switchbot.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
@@ -77,6 +78,30 @@ namespace _07JP27.Switchbot.Tests
         {
             SwitchbotClient client = new SwitchbotClient(TOKEN);
             var result = await client.Device.Plug.TurnOnAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task CurtainTurnOffAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Curtain.TurnOffAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task CurtainTurnOnAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Curtain.TurnOnAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task CurtainSetPositionAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Curtain.SetPositionAsync("", CurtainMode.Default, 80);
             Assert.AreNotEqual(result, null);
         }
     }

@@ -1,29 +1,72 @@
-﻿using System;
+﻿using _07JP27.Switchbot.Constants;
+using _07JP27.Switchbot.Enums;
+using _07JP27.Switchbot.Exceptions;
+using _07JP27.Switchbot.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace _07JP27.Switchbot
 {
-    public class Curtain
+    public class Curtain: BaseDevice
     {
-        SwitchbotClient _client;
-        public Curtain(SwitchbotClient client)
+        public Curtain(SwitchbotClient client) : base(client)
         {
-            _client = client;
         }
-        public void TurnOnAsync()
+        public Task<CommandExecuteResoponse> TurnOnAsync(string deviceId)
         {
-            // TODO: Impl
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOn,
+                Parameter = CommandParameter.Default
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
 
-        public void TurnOffAsync()
+        public Task<CommandExecuteResoponse> TurnOffAsync(string deviceId)
         {
-            // TODO: Impl
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOff,
+                Parameter = CommandParameter.Default
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
 
-        public void SetPositionAsync()
+        public Task<CommandExecuteResoponse> SetPositionAsync(string deviceId, CurtainMode mode, int position)
         {
-            // TODO: Impl
+            if (!Enumerable.Range(1, 100).Contains(position)) throw new ServiceException("The position must be between 0 to 100.");
+            
+            string lmode;
+            switch(mode)
+            {
+                case CurtainMode.Default:
+                    lmode = "ff";
+                    break;
+                case CurtainMode.Performance:
+                    lmode = "0";
+                    break;
+                case CurtainMode.Silent:
+                    lmode = "1";
+                    break;
+                default:
+                    throw new ServiceException("Can not set curtain mode.");
+            }
+
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.SetPosition,
+                Parameter = $"0,{lmode},{position}"
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
     }
 }
