@@ -63,5 +63,21 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.Bot.PressAsync("");
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task PlugTurnOffAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Plug.TurnOffAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task PlugTurnOnAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Plug.TurnOnAsync("");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }

@@ -1,24 +1,40 @@
-﻿using System;
+﻿using _07JP27.Switchbot.Constants;
+using _07JP27.Switchbot.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace _07JP27.Switchbot
 {
-    public class Plug
+    public class Plug: BaseDevice
     {
-        SwitchbotClient _client;
-        public Plug(SwitchbotClient client)
+        public Plug(SwitchbotClient client) : base(client)
         {
-            _client = client;
-        }
-        public void TurnOnAsync()
-        {
-            // TODO: Impl
         }
 
-        public void TurnOffAsync()
+        public Task<CommandExecuteResoponse> TurnOnAsync(string deviceId)
         {
-            // TODO: Impl
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOn,
+                Parameter = CommandParameter.Default
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
+        }
+
+        public Task<CommandExecuteResoponse> TurnOffAsync(string deviceId)
+        {
+            var parameters = new CommandRequestBody()
+            {
+                CommandType = CommandType.Commnad,
+                Command = Command.TurnOff,
+                Parameter = CommandParameter.Default
+            };
+
+            return this.CommandExecuteAsync(deviceId, parameters);
         }
     }
 }
