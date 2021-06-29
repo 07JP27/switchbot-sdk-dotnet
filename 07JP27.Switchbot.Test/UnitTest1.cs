@@ -7,27 +7,28 @@ namespace _07JP27.Switchbot.Tests
     [TestClass()]
     public class UnitTest1
     {
+        string TOKEN = "";
         [TestMethod()]
         public async Task GetDeviceListAsyncTest()
         {
-            SwitchbotClient client = new SwitchbotClient("");
-            var devices = await client.GetDeviceListAsync();
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var devices = await client.Device.GetListAsync();
             Assert.AreNotEqual(devices, null);
         }
 
         [TestMethod()]
         public async Task GetDeviceStatusAsyncTest()
         {
-            SwitchbotClient client = new SwitchbotClient("");
-            var device = await client.GetDeviceStatusAsync("");
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var device = await client.Device.GetStatusAsync("");
             Assert.AreNotEqual(device, null);
         }
 
         [TestMethod()]
         public async Task GetSceneListAsyncTestAsync()
         {
-            SwitchbotClient client = new SwitchbotClient("");
-            var scenes = await client.GetSceneListAsync();
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var scenes = await client.Scene.GetListAsync();
             Assert.AreNotEqual(scenes, null);
         }
     }

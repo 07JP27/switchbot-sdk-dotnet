@@ -22,31 +22,28 @@ namespace _07JP27.Switchbot
             _client.DefaultRequestHeaders.Add("Authorization", token);
         }
 
-        public async Task<DeviceListResponse> GetDeviceListAsync()
+        public async Task<T> SendAsync<T>(string requestUrl)
         {
-            HttpResponseMessage response = await _client.GetAsync("/v1.0/devices");
+            HttpResponseMessage response = await _client.GetAsync(requestUrl);
             response.EnsureSuccessStatusCode();
             var responseText = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<DeviceListResponse>(responseText);
+            return JsonConvert.DeserializeObject<T>(responseText);
         }
 
-        public async Task<DeviceStatusResponse> GetDeviceStatusAsync(string deviceId)
+        public Device Device
         {
-            if (string.IsNullOrEmpty(deviceId)) throw new ServiceException("deviceId is missing.");
-
-            HttpResponseMessage response = await _client.GetAsync($"/v1.0/devices/{deviceId}/status");
-            response.EnsureSuccessStatusCode();
-            var responseText = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<DeviceStatusResponse>(responseText);
+            get
+            {
+                return new Device(this);
+            }
         }
 
-        public async Task<SceneListResponse> GetSceneListAsync()
+        public Scene Scene
         {
-            HttpResponseMessage response = await _client.GetAsync("/v1.0/scenes");
-            response.EnsureSuccessStatusCode();
-            var responseText = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<SceneListResponse>(responseText);
+            get
+            {
+                return new Scene(this);
+            }
         }
-
     }
 }
