@@ -33,5 +33,29 @@ namespace _07JP27.Switchbot
                 return new Bot(_client);
             }
         }
+
+        public Plug Plug
+        {
+            get
+            {
+                return new Plug(_client);
+            }
+        }
+
+        public Curtain Curtain
+        {
+            get
+            {
+                return new Curtain(_client);
+            }
+        }
+
+        public SmartFan SmartFan
+        {
+            get
+            {
+                return new SmartFan(_client);
+            }
+        }
     }
 }

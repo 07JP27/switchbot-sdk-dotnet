@@ -4,10 +4,10 @@ using System.Text;
 
 namespace _07JP27.Switchbot
 {
-    public class Bot
+    public class SmartFan
     {
         SwitchbotClient _client;
-        public Bot(SwitchbotClient client)
+        public SmartFan(SwitchbotClient client)
         {
             _client = client;
         }
@@ -21,7 +21,7 @@ namespace _07JP27.Switchbot
             // TODO: Impl
         }
 
-        public void PressAsync()
+        public void SetModeAsync()
         {
             // TODO: Impl
         }

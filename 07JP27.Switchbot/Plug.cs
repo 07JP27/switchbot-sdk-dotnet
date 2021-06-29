@@ -4,10 +4,10 @@ using System.Text;
 
 namespace _07JP27.Switchbot
 {
-    public class Bot
+    public class Plug
     {
         SwitchbotClient _client;
-        public Bot(SwitchbotClient client)
+        public Plug(SwitchbotClient client)
         {
             _client = client;
         }
@@ -17,11 +17,6 @@ namespace _07JP27.Switchbot
         }
 
         public void TurnOffAsync()
-        {
-            // TODO: Impl
-        }
-
-        public void PressAsync()
         {
             // TODO: Impl
         }
