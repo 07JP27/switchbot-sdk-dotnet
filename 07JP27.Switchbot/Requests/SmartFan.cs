@@ -59,7 +59,7 @@ namespace _07JP27.Switchbot
             {
                 CommandType = CommandType.Commnad,
                 Command = Command.SetAllStatus,
-                Parameter = $"{lpower},{fanMode},{fanSpeed},{shakeRange}"
+                Parameter = $"{lpower},{((int)fanMode)},{((int)fanSpeed)},{shakeRange}"
             };
 
             return this.CommandExecuteAsync(deviceId, parameters);
