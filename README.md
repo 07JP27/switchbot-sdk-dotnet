@@ -16,6 +16,12 @@ SwitchbotClient client = new SwitchbotClient("{token}");
 DeviceStatusResponse status = await client.Device.GetStatusAsync("{deviceId}");
 ```
 
+## Press Bot (and execute other commands.)
+``` cs
+SwitchbotClient client = new SwitchbotClient("{token}");
+CommandExecuteResoponse result = await client.Device.Bot.PressAsync("{deviceId}");
+```
+
 ## Get scene list
 ``` cs
 SwitchbotClient client = new SwitchbotClient("{token}");
