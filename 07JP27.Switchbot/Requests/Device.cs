@@ -65,5 +65,13 @@ namespace _07JP27.Switchbot
                 return new SmartFan(_client);
             }
         }
+
+        public Tv Tv
+        {
+            get
+            {
+                return new Tv(_client);
+            }
+        }
     }
 }

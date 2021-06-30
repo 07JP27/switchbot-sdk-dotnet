@@ -153,5 +153,45 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.SmartFan.SetAllStatusAsync("", SmartFanPower.On, SmartFanMode.Natural, SmartFanSpeed.Middle, 50);
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task TvSetChannelAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Tv.SetChannelAsync("", 4);
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task TvVolumeAddAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Tv.VolumeAddAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task TvVolumeSubAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Tv.VolumeSubAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task TvChannelAddAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Tv.ChannelAddAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task TvChannelSubAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Tv.ChannelSubAsync("");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }

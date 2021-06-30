@@ -12,5 +12,10 @@ namespace _07JP27.Switchbot.Constants
         internal const string SetPosition = "setPosition";
         internal const string SetMode = "setMode";
         internal const string SetAllStatus = "setAllStatus";
+        internal const string SetChannel = "SetChannel";
+        internal const string VolumeAdd = "volumeAdd";
+        internal const string VolumeSub = "volumeSub";
+        internal const string ChannelAdd = "channelAdd";
+        internal const string ChannelSub = "channelSub";
     }
 }
