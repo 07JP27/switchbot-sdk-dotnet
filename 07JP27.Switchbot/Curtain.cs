@@ -41,7 +41,7 @@ namespace _07JP27.Switchbot
 
         public Task<CommandExecuteResoponse> SetPositionAsync(string deviceId, CurtainMode mode, int position)
         {
-            if (!Enumerable.Range(1, 100).Contains(position)) throw new ServiceException("The position must be between 0 to 100.");
+            if (!Enumerable.Range(1, 100).Contains(position)) throw new ArgumentException("The position must be between 0 to 100.");
             
             string lmode;
             switch(mode)

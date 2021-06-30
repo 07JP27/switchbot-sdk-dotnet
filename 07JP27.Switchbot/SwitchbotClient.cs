@@ -13,7 +13,7 @@ namespace _07JP27.Switchbot
 
         public SwitchbotClient(string token, string baseUrl = "https://api.switch-bot.com")
         {
-            if (string.IsNullOrEmpty(token)) throw new ServiceException("Token is missing.");
+            if (string.IsNullOrEmpty(token)) throw new ArgumentException("Token is missing.");
 
             _client = _client ?? new HttpClient()
             {

@@ -22,7 +22,7 @@ namespace _07JP27.Switchbot
 
         public Task<DeviceStatusResponse> GetStatusAsync(string deviceId)
         {
-            if (string.IsNullOrEmpty(deviceId)) throw new ServiceException("deviceId is missing.");
+            if (string.IsNullOrEmpty(deviceId)) throw new ArgumentException("deviceId is missing.");
             return this._client.GetAsync<DeviceStatusResponse>($"/v1.0/devices/{deviceId}/status");
         }
 

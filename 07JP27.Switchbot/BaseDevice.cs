@@ -19,6 +19,7 @@ namespace _07JP27.Switchbot
 
         public Task<CommandExecuteResoponse> CommandExecuteAsync(string deviceId, CommandRequestBody parameters)
         {
+            if (string.IsNullOrEmpty(deviceId)) throw new ArgumentException("deviceId is missing.");
             var json = JsonConvert.SerializeObject(parameters);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             return this._client.PostAsync<CommandExecuteResoponse>($"/v1.0/devices/{deviceId}/commands", content);
