@@ -96,5 +96,13 @@ namespace _07JP27.Switchbot
                 return new Speaker(_client);
             }
         }
+
+        public Fan Fan
+        {
+            get
+            {
+                return new Fan(_client);
+            }
+        }
     }
 }
