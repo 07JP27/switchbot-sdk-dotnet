@@ -25,5 +25,6 @@ namespace _07JP27.Switchbot.Constants
         internal const string Pause = "Pause";
         internal const string Play = "Play";
         internal const string Stop = "Stop";
+        internal const string SetAll = "setAll";
     }
 }

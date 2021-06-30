@@ -257,5 +257,13 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.DVD.StopAsync("");
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task AirConditionerSetAllSAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.AirConditioner.SetAllAsync("", 26, AirConditionerMode.Cool, AirConditionerFanSpeed.High, AirConditionerPower.On);
+            Assert.AreNotEqual(result, null);
+        }
     }
 }

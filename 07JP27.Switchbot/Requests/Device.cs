@@ -66,6 +66,14 @@ namespace _07JP27.Switchbot
             }
         }
 
+        public AirConditioner AirConditioner
+        {
+            get
+            {
+                return new AirConditioner(_client);
+            }
+        }
+
         public Tv Tv
         {
             get
