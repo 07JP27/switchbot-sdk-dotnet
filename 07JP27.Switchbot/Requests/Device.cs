@@ -73,5 +73,13 @@ namespace _07JP27.Switchbot
                 return new Tv(_client);
             }
         }
+
+        public DVD DVD
+        {
+            get
+            {
+                return new DVD(_client);
+            }
+        }
     }
 }

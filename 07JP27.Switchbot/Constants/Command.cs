@@ -17,5 +17,13 @@ namespace _07JP27.Switchbot.Constants
         internal const string VolumeSub = "volumeSub";
         internal const string ChannelAdd = "channelAdd";
         internal const string ChannelSub = "channelSub";
+        internal const string SetMute = "setMute";
+        internal const string FastForward = "FastForward";
+        internal const string Rewind = "Rewind";
+        internal const string Next = "Next";
+        internal const string Previous = "Previous";
+        internal const string Pause = "Pause";
+        internal const string Play = "Play";
+        internal const string Stop = "Stop";
     }
 }

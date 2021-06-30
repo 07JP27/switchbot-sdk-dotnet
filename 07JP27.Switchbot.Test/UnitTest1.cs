@@ -193,5 +193,69 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.Tv.ChannelSubAsync("");
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task DVDSetMuteAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.SetMuteAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task DVDFastForwardAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.FastForwardAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task DVDRewindAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.RewindAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task DVDNextAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.NextAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task DVDPreviousAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.PreviousAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task DVDPauseAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.PauseAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task DVDPlayAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.PlayAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task DVDStopAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.DVD.StopAsync("");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }
