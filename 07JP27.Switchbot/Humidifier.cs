@@ -1,5 +1,6 @@
 ﻿using _07JP27.Switchbot.Constants;
 using _07JP27.Switchbot.Models;
+using _07JP27.Switchbot.Structs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -36,13 +37,13 @@ namespace _07JP27.Switchbot
             return this.CommandExecuteAsync(deviceId, parameters);
         }
 
-        public Task<CommandExecuteResoponse> SetModeAsync(string deviceId, string mode)
+        public Task<CommandExecuteResoponse> SetModeAsync(string deviceId, HumidifierMode mode)
         {
             var parameters = new CommandRequestBody()
             {
                 CommandType = CommandType.Commnad,
                 Command = Command.SetMode,
-                Parameter = mode
+                Parameter = mode.Value
             };
 
             return this.CommandExecuteAsync(deviceId, parameters);

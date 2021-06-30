@@ -1,5 +1,6 @@
 using _07JP27.Switchbot;
 using _07JP27.Switchbot.Enums;
+using _07JP27.Switchbot.Structs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
@@ -125,7 +126,7 @@ namespace _07JP27.Switchbot.Tests
         public async Task HumidifierSetModeAsyncTest()
         {
             SwitchbotClient client = new SwitchbotClient(TOKEN);
-            var result = await client.Device.Humidifier.SetModeAsync("", "auto");
+            var result = await client.Device.Humidifier.SetModeAsync("", HumidifierMode.Percentage(30));
             Assert.AreNotEqual(result, null);
         }
 
