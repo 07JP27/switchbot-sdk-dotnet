@@ -31,5 +31,7 @@ namespace _07JP27.Switchbot.Constants
         internal const string LowSpeed = "lowSpeed";
         internal const string MiddleSpeed = "middleSpeed";
         internal const string HighSpeed = "highSpeed";
+        internal const string BrightnessUp = "brightnessUp";
+        internal const string BrightnessDown = "brightnessDown";
     }
 }

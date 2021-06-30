@@ -104,5 +104,13 @@ namespace _07JP27.Switchbot
                 return new Fan(_client);
             }
         }
+
+        public Light Light
+        {
+            get
+            {
+                return new Light(_client);
+            }
+        }
     }
 }

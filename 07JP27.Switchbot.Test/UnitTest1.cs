@@ -321,5 +321,21 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.Fan.HighSpeedAsync("");
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task LightBrightnessUpAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Light.BrightnessUpAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task LightBrightnessDownAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Light.BrightnessDownAsync("");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }
