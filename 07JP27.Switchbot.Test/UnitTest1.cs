@@ -265,5 +265,21 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.AirConditioner.SetAllAsync("", 26, AirConditionerMode.Cool, AirConditionerFanSpeed.High, AirConditionerPower.On);
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task SpeakerVolumeAddAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Speaker.volumeAddAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task SpeakerVolumeSubAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Speaker.volumeSubAsync("");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }

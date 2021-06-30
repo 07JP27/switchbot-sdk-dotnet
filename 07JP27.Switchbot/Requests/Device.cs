@@ -89,5 +89,12 @@ namespace _07JP27.Switchbot
                 return new DVD(_client);
             }
         }
+        public Speaker Speaker
+        {
+            get
+            {
+                return new Speaker(_client);
+            }
+        }
     }
 }

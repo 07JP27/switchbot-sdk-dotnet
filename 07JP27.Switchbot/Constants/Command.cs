@@ -26,5 +26,10 @@ namespace _07JP27.Switchbot.Constants
         internal const string Play = "Play";
         internal const string Stop = "Stop";
         internal const string SetAll = "setAll";
+        internal const string Swing = "swing";
+        internal const string Timer = "timer";
+        internal const string LowSpeed = "lowSpeed";
+        internal const string MiddleSpeed = "middleSpeed";
+        internal const string HighSpeed = "highSpeed";
     }
 }
