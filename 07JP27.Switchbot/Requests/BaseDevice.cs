@@ -11,7 +11,7 @@ namespace _07JP27.Switchbot
 {
     public class BaseDevice
     {
-        SwitchbotClient _client;
+        private SwitchbotClient _client;
         public BaseDevice(SwitchbotClient client)
         {
             _client = client;

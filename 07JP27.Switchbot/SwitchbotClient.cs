@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace _07JP27.Switchbot
 {
-    public class SwitchbotClient
+    public class SwitchbotClient: IDisposable
     {
-        private static HttpClient _client = null;
+        private HttpClient _client;
+        private Device _device;
+        private Scene _scene;
 
         public SwitchbotClient(string token, string baseUrl = "https://api.switch-bot.com")
         {
@@ -38,11 +40,20 @@ namespace _07JP27.Switchbot
             return JsonConvert.DeserializeObject<T>(responseText);
         }
 
+        public void Dispose()
+        {
+            this._client.Dispose();
+        }
+
         public Device Device
         {
             get
             {
-                return new Device(this);
+                if (_device is null)
+                {
+                    _device = new Device(this);
+                }
+                return _device;
             }
         }
 
@@ -50,7 +61,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Scene(this);
+                if (_scene is null)
+                {
+                    _scene = new Scene(this);
+                }
+                return _scene;
             }
         }
     }

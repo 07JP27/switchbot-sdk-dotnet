@@ -2,6 +2,7 @@ using _07JP27.Switchbot;
 using _07JP27.Switchbot.Enums;
 using _07JP27.Switchbot.Structs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Threading.Tasks;
 
 namespace _07JP27.Switchbot.Tests
@@ -361,6 +362,17 @@ namespace _07JP27.Switchbot.Tests
             SwitchbotClient client = new SwitchbotClient(TOKEN);
             var result = await client.Device.Custom.ExecuteAsync("","");
             Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task MultiClientTest()
+        {
+            SwitchbotClient hoge = new SwitchbotClient("hoge");
+            SwitchbotClient foo = new SwitchbotClient("foo");
+            var hogeresult = await hoge.Device.Bot.TurnOnAsync("hogeId");
+            var fooresult = await foo.Device.Bot.TurnOnAsync("fooId");
+
+            Assert.AreNotEqual(hogeresult, null);
         }
     }
 }

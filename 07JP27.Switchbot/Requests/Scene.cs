@@ -9,7 +9,7 @@ namespace _07JP27.Switchbot
 {
     public class Scene
     {
-        SwitchbotClient _client;
+        private SwitchbotClient _client;
         public Scene(SwitchbotClient client)
         {
             _client = client;

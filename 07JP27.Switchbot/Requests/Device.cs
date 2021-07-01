@@ -9,8 +9,22 @@ namespace _07JP27.Switchbot
 {
     public class Device
     {
-        SwitchbotClient _client;
-        public Device(SwitchbotClient client)
+        private SwitchbotClient _client;
+        private Bot _bot;
+        private Plug _plug;
+        private Curtain _curtain;
+        private Humidifier _humidifier;
+        private SmartFan _smartFan;
+        private AirConditioner _airConditioner;
+        private Tv _tv;
+        private DVD _dvd;
+        private Speaker _speaker;
+        private Fan _fan;
+        private Light _light;
+        private GeneralHomeAppliance _generalHomeAppliance;
+        private Custom _custom;
+
+       public Device(SwitchbotClient client)
         {
             _client = client;
         }
@@ -30,7 +44,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Bot(_client);
+                if (_bot is null)
+                {
+                    _bot = new Bot(_client);
+                }
+                return _bot;
             }
         }
 
@@ -38,7 +56,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Plug(_client);
+                if (_plug is null)
+                {
+                    _plug = new Plug(_client);
+                }
+                return _plug;
             }
         }
 
@@ -46,7 +68,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Curtain(_client);
+                if (_curtain is null)
+                {
+                    _curtain = new Curtain(_client);
+                }
+                return _curtain;
             }
         }
 
@@ -54,7 +80,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Humidifier(_client);
+                if (_humidifier is null)
+                {
+                    _humidifier = new Humidifier(_client);
+                }
+                return _humidifier;
             }
         }
 
@@ -62,7 +92,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new SmartFan(_client);
+                if (_smartFan is null)
+                {
+                    _smartFan = new SmartFan(_client);
+                }
+                return _smartFan;
             }
         }
 
@@ -70,7 +104,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new AirConditioner(_client);
+                if (_airConditioner is null)
+                {
+                    _airConditioner = new AirConditioner(_client);
+                }
+                return _airConditioner;
             }
         }
 
@@ -78,7 +116,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Tv(_client);
+                if (_tv is null)
+                {
+                    _tv = new Tv(_client);
+                }
+                return _tv;
             }
         }
 
@@ -86,14 +128,22 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new DVD(_client);
+                if (_dvd is null)
+                {
+                    _dvd = new DVD(_client);
+                }
+                return _dvd;
             }
         }
         public Speaker Speaker
         {
             get
             {
-                return new Speaker(_client);
+                if (_speaker is null)
+                {
+                    _speaker = new Speaker(_client);
+                }
+                return _speaker;
             }
         }
 
@@ -101,7 +151,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Fan(_client);
+                if (_fan is null)
+                {
+                    _fan = new Fan(_client);
+                }
+                return _fan;
             }
         }
 
@@ -109,7 +163,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Light(_client);
+                if (_light is null)
+                {
+                    _light = new Light(_client);
+                }
+                return _light;
             }
         }
 
@@ -117,7 +175,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new GeneralHomeAppliance(_client);
+                if (_generalHomeAppliance is null)
+                {
+                    _generalHomeAppliance = new GeneralHomeAppliance(_client);
+                }
+                return _generalHomeAppliance;
             }
         }
 
@@ -125,7 +187,11 @@ namespace _07JP27.Switchbot
         {
             get
             {
-                return new Custom(_client);
+                if (_custom is null)
+                {
+                    _custom = new Custom(_client);
+                }
+                return _custom;
             }
         }
     }
