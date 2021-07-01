@@ -354,5 +354,13 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.GeneralHomeAppliance.TurnOnAsync("");
             Assert.AreNotEqual(result, null);
         }
+
+        [TestMethod()]
+        public async Task CustomExecuteAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.Custom.ExecuteAsync("","");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }
