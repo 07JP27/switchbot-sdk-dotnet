@@ -112,5 +112,13 @@ namespace _07JP27.Switchbot
                 return new Light(_client);
             }
         }
+
+        public GeneralHomeAppliance GeneralHomeAppliance
+        {
+            get
+            {
+                return new GeneralHomeAppliance(_client);
+            }
+        }
     }
 }

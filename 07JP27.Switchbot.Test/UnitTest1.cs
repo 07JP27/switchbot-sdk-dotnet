@@ -337,5 +337,22 @@ namespace _07JP27.Switchbot.Tests
             var result = await client.Device.Light.BrightnessDownAsync("");
             Assert.AreNotEqual(result, null);
         }
+
+
+        [TestMethod()]
+        public async Task GeneralHomeApplianceTurnOffAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.GeneralHomeAppliance.TurnOffAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task GeneralHomeApplianceTurnOnAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.GeneralHomeAppliance.TurnOnAsync("");
+            Assert.AreNotEqual(result, null);
+        }
     }
 }
