@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoinJomain.Switchbot", "DoinJomain.Switchbot\DoinJomain.Switchbot.csproj", "{05E44689-1EA1-41F9-BEC5-567D6AC3791A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoinJomain.Switchbot.Test", "DoinJomain.Switchbot.Test\DoinJomain.Switchbot.Test.csproj", "{922E64F1-BE18-46AB-8F98-AB7525C71CE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05E44689-1EA1-41F9-BEC5-567D6AC3791A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E44689-1EA1-41F9-BEC5-567D6AC3791A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E44689-1EA1-41F9-BEC5-567D6AC3791A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E44689-1EA1-41F9-BEC5-567D6AC3791A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{922E64F1-BE18-46AB-8F98-AB7525C71CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922E64F1-BE18-46AB-8F98-AB7525C71CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922E64F1-BE18-46AB-8F98-AB7525C71CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922E64F1-BE18-46AB-8F98-AB7525C71CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AE51F8B-7899-41E1-9FB0-9ED5F748C4C0}
+	EndGlobalSection
+EndGlobal
