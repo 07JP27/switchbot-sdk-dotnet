@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2   
+    - name: Install dependencies
+      run: dotnet restore DoinJomain.Switchbot/DoinJomain.Switchbot.csproj
+    - name: Build
+      run: msbuild DoinJomain.Switchbot/DoinJomain.Switchbot.csproj -p:Configuration=Release -p:Platform="Any CPU"
+    - name: Copy package files
+      run: |
+        mkdir dist
+        Copy-Item (Get-ChildItem -Path "Source/**/*.nupkg" -Recurse) -Destination dist
+        Copy-Item (Get-ChildItem -Path "Source/**/*.snupkg" -Recurse) -Destination dist
+      shell: pwsh
+    - name: Archive NuGet packages
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: dist

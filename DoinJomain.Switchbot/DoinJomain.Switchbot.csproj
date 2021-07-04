@@ -1,13 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>DoinJomain.Switchbot</RootNamespace>
     <AssemblyName>DoinJomain.Switchbot</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>07JP27</Company>
+    <Authors>07JP27</Authors>
+    <Product>SwitchBot SDK dotnet</Product>
+    <Description>The Switchbot dotnet SDK based on https://github.com/OpenWonderLabs/SwitchBotAPI</Description>
+    <Copyright />
+    <PackageProjectUrl>https://github.com/07JP27/switchbot-sdk-dotnet</PackageProjectUrl>
+    <Version>0.1.0</Version>
+    <RepositoryUrl>https://github.com/07JP27/switchbot-sdk-dotnet</RepositoryUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
