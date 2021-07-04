@@ -1,4 +1,8 @@
-# [WIP]switchbot-sdk-dotnet
+# switchbot-sdk-dotnet
+[![Build and Release](https://github.com/07JP27/switchbot-sdk-dotnet/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/07JP27/switchbot-sdk-dotnet/actions/workflows/build-and-publish.yml)
+![](https://img.shields.io/nuget/v/DoinJomain.Switchbot.svg)
+![](https://img.shields.io/nuget/dt/DoinJomain.Switchbot.svg)
+
 The Switchbot dotnet SDK based on https://github.com/OpenWonderLabs/SwitchBotAPI
 
 Note: This SDK is unofficial.
