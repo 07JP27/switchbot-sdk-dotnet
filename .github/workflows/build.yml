@@ -18,8 +18,8 @@ jobs:
     - name: Copy package files
       run: |
         mkdir dist
-        Copy-Item (Get-ChildItem -Path "Source/**/*.nupkg" -Recurse) -Destination dist
-        Copy-Item (Get-ChildItem -Path "Source/**/*.snupkg" -Recurse) -Destination dist
+        Copy-Item (Get-ChildItem -Path "DoinJomain.Switchbot/**/*.nupkg" -Recurse) -Destination dist
+        Copy-Item (Get-ChildItem -Path "DoinJomain.Switchbot/**/*.snupkg" -Recurse) -Destination dist
       shell: pwsh
     - name: Archive NuGet packages
       uses: actions/upload-artifact@v1
