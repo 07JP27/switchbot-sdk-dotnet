@@ -17,7 +17,7 @@ namespace DoinJomain.Switchbot
         {
             if (string.IsNullOrEmpty(token)) throw new ArgumentException("Token is missing.");
 
-            _client = _client ?? new HttpClient()
+            _client = new HttpClient()
             {
                 BaseAddress = new Uri(baseUrl)
             };
