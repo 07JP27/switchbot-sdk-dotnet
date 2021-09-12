@@ -15,6 +15,7 @@ namespace DoinJomain.Switchbot
         private Curtain _curtain;
         private Humidifier _humidifier;
         private SmartFan _smartFan;
+        private ColorBulb _colorBulb;
         private AirConditioner _airConditioner;
         private Tv _tv;
         private DVD _dvd;
@@ -97,6 +98,18 @@ namespace DoinJomain.Switchbot
                     _smartFan = new SmartFan(_client);
                 }
                 return _smartFan;
+            }
+        }
+
+        public ColorBulb ColorBulb
+        {
+            get
+            {
+                if (_colorBulb is null)
+                {
+                    _colorBulb = new ColorBulb(_client);
+                }
+                return _colorBulb;
             }
         }
 
