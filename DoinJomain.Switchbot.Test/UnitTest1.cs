@@ -156,6 +156,55 @@ namespace DoinJomain.Switchbot.Tests
         }
 
         [TestMethod()]
+        public async Task ColorBulbTurnOnAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.ColorBulb.TurnOnAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task ColorBulbTurnOffAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.ColorBulb.TurnOffAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task ColorBulbToggleAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.ColorBulb.ToggleAsync("");
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task ColorBulbSetBrightnessAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.ColorBulb.SetBrightnessAsync("",10);
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task ColorBulbSetColorAsyncTest()
+        {
+            RgbColor color = new RgbColor(10, 20, 30);
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.ColorBulb.SetColorAsync("", color);
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
+        public async Task ColorBulbSetColorTemperatureAsyncTest()
+        {
+            SwitchbotClient client = new SwitchbotClient(TOKEN);
+            var result = await client.Device.ColorBulb.SetColorTemperature("", 2700);
+            Assert.AreNotEqual(result, null);
+        }
+
+        [TestMethod()]
         public async Task TvSetChannelAsyncTest()
         {
             SwitchbotClient client = new SwitchbotClient(TOKEN);

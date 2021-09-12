@@ -33,5 +33,11 @@ namespace DoinJomain.Switchbot.Models
         public bool Shaking { get; set; }
         public int ShakeCenter { get; set; }
         public int ShakeRange { get; set; }
+        public bool MoveDetected { get; set; }
+        public string Brightness { get; set; }
+        public string OpenState { get; set; }
+        public string Color { get; set; }
+        public int ColorTemperature { get; set; }
+        public bool LackWater { get; set; }
     }
 }

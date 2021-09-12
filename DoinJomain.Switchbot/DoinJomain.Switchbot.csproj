@@ -11,7 +11,7 @@
     <Description>The Switchbot dotnet SDK based on https://github.com/OpenWonderLabs/SwitchBotAPI</Description>
     <Copyright />
     <PackageProjectUrl>https://github.com/07JP27/switchbot-sdk-dotnet</PackageProjectUrl>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <RepositoryUrl>https://github.com/07JP27/switchbot-sdk-dotnet</RepositoryUrl>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryType>GitHub</RepositoryType>

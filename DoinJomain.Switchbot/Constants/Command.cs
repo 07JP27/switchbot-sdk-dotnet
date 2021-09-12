@@ -33,5 +33,9 @@ namespace DoinJomain.Switchbot.Constants
         internal const string HighSpeed = "highSpeed";
         internal const string BrightnessUp = "brightnessUp";
         internal const string BrightnessDown = "brightnessDown";
+        internal const string Toggle = "toggle";
+        internal const string SetBrightness = "setBrightness";
+        internal const string SetColor = "setColor";
+        internal const string SetColorTemperature = "setColorTemperature";
     }
 }
