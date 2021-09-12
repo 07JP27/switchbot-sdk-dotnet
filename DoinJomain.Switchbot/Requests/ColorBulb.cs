@@ -53,6 +53,7 @@ namespace DoinJomain.Switchbot
 
         public Task<CommandExecuteResoponse> SetBrightnessAsync(string deviceId, int brightness)
         {
+            if (brightness < 0 || brightness > 100) throw new ArgumentOutOfRangeException(nameof(brightness));
             var parameters = new CommandRequestBody()
             {
                 CommandType = CommandType.Commnad,
@@ -75,6 +76,7 @@ namespace DoinJomain.Switchbot
 
         public Task<CommandExecuteResoponse> SetColorTemperature(string deviceId, int temperature)
         {
+            if (temperature < 2700 || temperature > 6500) throw new ArgumentOutOfRangeException(nameof(temperature));
             var parameters = new CommandRequestBody()
             {
                 CommandType = CommandType.Commnad,
